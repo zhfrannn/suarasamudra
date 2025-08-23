@@ -519,72 +519,40 @@
             </div>
             
             <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden mb-12">
-                <div class="p-6 border-b border-gray-200">
-                    <h3 class="text-xl font-semibold text-gray-800 flex items-center">
-                        <i class="fas fa-gamepad mr-3 text-purple-600"></i> Resilience Simulation
-                    </h3>
-                </div>
-                <div class="p-6">
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-sm font-medium text-gray-700">Progress</span>
-                            <span class="text-sm font-medium text-gray-700">25%</span>
-                        </div>
-                        <div class="simulation-progress rounded-full">
-                            <div class="simulation-progress-bar rounded-full" style="width: 25%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
-                        <h4 class="text-lg font-semibold mb-4">Scenario: Flash Flood at Midnight</h4>
-                        <p class="text-gray-600 mb-6">Based on true events from Calang, 2004. It's 2 AM and heavy rain has been falling for hours. You hear shouting outside and the sound of rushing water. What do you do first?</p>
-                        
-                        <div class="space-y-3">
-                            <button class="choice-btn w-full text-left p-4 rounded-lg bg-white hover:bg-blue-50 transition">
-                                <div class="flex items-center">
-                                    <div class="w-6 h-6 rounded-full border-2 border-blue-600 flex items-center justify-center mr-3">
-                                        <span class="text-blue-600 font-bold">A</span>
-                                    </div>
-                                    <span>Wake up family members and tell them to climb onto the roof</span>
-                                </div>
-                            </button>
-                            <button class="choice-btn w-full text-left p-4 rounded-lg bg-white hover:bg-blue-50 transition">
-                                <div class="flex items-center">
-                                    <div class="w-6 h-6 rounded-full border-2 border-blue-600 flex items-center justify-center mr-3">
-                                        <span class="text-blue-600 font-bold">B</span>
-                                    </div>
-                                    <span>Grab important documents and valuables before evacuating</span>
-                                </div>
-                            </button>
-                            <button class="choice-btn w-full text-left p-4 rounded-lg bg-white hover:bg-blue-50 transition">
-                                <div class="flex items-center">
-                                    <div class="w-6 h-6 rounded-full border-2 border-blue-600 flex items-center justify-center mr-3">
-                                        <span class="text-blue-600 font-bold">C</span>
-                                    </div>
-                                    <span>Check social media to see what others are saying about the situation</span>
-                                </div>
-                            </button>
-                            <button class="choice-btn w-full text-left p-4 rounded-lg bg-white hover:bg-blue-50 transition">
-                                <div class="flex items-center">
-                                    <div class="w-6 h-6 rounded-full border-2 border-blue-600 flex items-center justify-center mr-3">
-                                        <span class="text-blue-600 font-bold">D</span>
-                                    </div>
-                                    <span>Go back to sleep, assuming the water won't reach your house</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-between">
-                        <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
-                            <i class="fas fa-undo mr-2"></i> Restart
-                        </button>
-                        <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
-                            Submit Answer <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </div>
+    <div class="p-6 border-b border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-800 flex items-center">
+            <i class="fas fa-gamepad mr-3 text-purple-600"></i> Resilience Simulation
+        </h3>
+    </div>
+    <div class="p-6">
+        <div class="mb-6">
+            <div class="flex justify-between mb-2">
+                <span class="text-sm font-medium text-gray-700">Progress</span>
+                <span id="progress-text" class="text-sm font-medium text-gray-700">0%</span>
             </div>
+            <div class="simulation-progress rounded-full">
+                <div id="progress-bar" class="simulation-progress-bar rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h4 id="scenario-title" class="text-lg font-semibold mb-4"></h4>
+            <p id="scenario-text" class="text-gray-600 mb-6"></p>
+            
+            <div id="choices-container" class="space-y-3">
+                </div>
+        </div>
+        
+        <div class="flex justify-between">
+            <button id="restart-btn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
+                <i class="fas fa-undo mr-2"></i> Restart
+            </button>
+            <button id="next-btn" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition hidden">
+                Next <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+    </div>
+</div>
             
             <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-xl overflow-hidden">
                 <div class="grid md:grid-cols-2">
@@ -1002,5 +970,69 @@
             document.querySelector('.simulation-progress span:last-child').textContent = `${progress}%`;
         }
     });
+        // Logika untuk Simulasi Bencana
+const scenarioText = document.getElementById('scenario-text');
+const choicesContainer = document.getElementById('choices-container');
+const restartBtn = document.getElementById('restart-btn');
+
+const scenarios = [
+    {
+        question: "Based on true events from Calang, 2004. It's 2 AM and heavy rain has been falling for hours. You hear shouting outside and the sound of rushing water. What do you do first?",
+        choices: [
+            { text: "Wake up family members and tell them to climb onto the roof", correct: false, feedback: "🚨**Feedback AI:** Prioritas yang baik adalah membangunkan keluarga. Namun, naik ke atap mungkin bukan pilihan teraman jika air terus naik. Pilihan yang lebih baik adalah mencari tempat lebih tinggi. 😟" },
+            { text: "Grab important documents and valuables before evacuating", correct: false, feedback: "🚨**Feedback AI:** Hati-hati! Mengutamakan barang berharga bisa menghabiskan waktu kritis. Ingat, keselamatan nyawa adalah yang utama. ⏳" },
+            { text: "Go to a designated evacuation point immediately, without gathering belongings", correct: true, feedback: "✅**Feedback AI:** Jawaban tepat! Tindakan paling krusial adalah evakuasi segera ke tempat aman, tanpa menunda untuk mengumpulkan barang. Selamatkan diri, bukan harta. 👍" },
+            { text: "Check social media to see what others are saying about the situation", correct: false, feedback: "🚨**Feedback AI:** Pilihan ini berbahaya! Menunda evakuasi untuk mengecek media sosial bisa berakibat fatal. Ikuti naluri dan dengarkan peringatan di luar. ⚠️" }
+        ]
+    }
+];
+
+let currentScenarioIndex = 0;
+
+function startSimulation() {
+    restartBtn.classList.add('hidden'); // Sembunyikan tombol restart saat simulasi dimulai
+    showScenario(scenarios[currentScenarioIndex]);
+}
+
+function showScenario(scenario) {
+    scenarioText.innerHTML = scenario.question;
+    choicesContainer.innerHTML = '';
+    
+    scenario.choices.forEach(choice => {
+        const button = document.createElement('button');
+        button.innerHTML = `
+            <div class="flex items-center">
+                <div class="w-6 h-6 rounded-full border-2 border-blue-600 flex items-center justify-center mr-3">
+                    <span class="text-blue-600 font-bold">${String.fromCharCode(65 + scenario.choices.indexOf(choice))}</span>
+                </div>
+                <span>${choice.text}</span>
+            </div>
+        `;
+        button.className = 'choice-btn w-full text-left p-4 rounded-lg bg-white transition';
+        button.onclick = () => selectAnswer(choice);
+        choicesContainer.appendChild(button);
+    });
+}
+
+function selectAnswer(choice) {
+    // Nonaktifkan semua tombol setelah memilih
+    Array.from(choicesContainer.children).forEach(button => {
+        button.disabled = true;
+    });
+
+    const feedback = document.createElement('div');
+    feedback.className = `mt-4 p-4 rounded-lg ${choice.correct ? 'bg-green-100' : 'bg-red-100'}`;
+    feedback.innerHTML = `<p class="font-semibold">${choice.feedback}</p>`;
+    choicesContainer.appendChild(feedback);
+
+    restartBtn.classList.remove('hidden'); // Tampilkan tombol restart
+}
+
+restartBtn.onclick = () => {
+    startSimulation();
+};
+
+// Mulai simulasi saat halaman dimuat
+startSimulation();
 </script>
 </html>
