@@ -334,186 +334,21 @@
             </div>
             
             <h3 class="text-2xl font-semibold text-gray-800 mb-6">Featured Stories</h3>
-<div class="overflow-x-scroll no-scrollbar">
-    <div class="flex flex-nowrap gap-8 pb-4">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden story-card flex-shrink-0 w-80">
-            <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-water text-white text-6xl opacity-30"></i>
-                </div>
-                <div class="absolute bottom-4 left-4">
-                    <span class="bg-white text-blue-800 text-xs font-semibold px-2 py-1 rounded">Tsunami</span>
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center mb-3">
-                    <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
-                        <i class="fas fa-user text-gray-600"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden story-card">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-water text-white text-6xl opacity-30"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-white text-blue-800 text-xs font-semibold px-2 py-1 rounded">Tsunami</span>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-semibold">Anonymous Survivor</h4>
-                        <p class="text-gray-500 text-sm">Banda Aceh</p>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-3">The Wave That Changed Everything</h3>
-                <p class="text-gray-600 mb-4">"I was 12 years old when the water came. The sound still haunts me - like a thousand trains..."</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Evacuation</span>
-                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Family</span>
-                    </div>
-                    <button onclick="showStory('banda-aceh')" class="text-blue-600 hover:text-blue-800">
-                        <i class="fas fa-book-open"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-md overflow-hidden story-card flex-shrink-0 w-80">
-            <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-hands-helping text-white text-6xl opacity-30"></i>
-                </div>
-                <div class="absolute bottom-4 left-4">
-                    <span class="bg-white text-green-800 text-xs font-semibold px-2 py-1 rounded">Recovery</span>
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center mb-3">
-                    <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
-                        <i class="fas fa-user text-gray-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold">Muhammad Arif</h4>
-                        <p class="text-gray-500 text-sm">Meulaboh</p>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Rebuilding Our Village Together</h3>
-                <p class="text-gray-600 mb-4">"We had nothing left but each other. The gotong royong spirit is what saved us in those first months..."</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">Community</span>
-                        <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Hope</span>
-                    </div>
-                    <button onclick="showStory('meulaboh')" class="text-green-600 hover:text-green-800">
-                        <i class="fas fa-book-open"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-md overflow-hidden story-card flex-shrink-0 w-80">
-            <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-700 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-dove text-white text-6xl opacity-30"></i>
-                </div>
-                <div class="absolute bottom-4 left-4">
-                    <span class="bg-white text-purple-800 text-xs font-semibold px-2 py-1 rounded">Peace</span>
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center mb-3">
-                    <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
-                        <i class="fas fa-user text-gray-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold">Siti Aminah</h4>
-                        <p class="text-gray-500 text-sm">Lhonga</p>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-3">From Conflict to Coffee Shop</h3>
-                <p class="text-gray-600 mb-4">"My warung kopi became neutral ground. Former enemies now share tables and stories..."</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full">Reconciliation</span>
-                        <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full">Dialogue</span>
-                    </div>
-                    <button onclick="showStory('lhonga')" class="text-purple-600 hover:text-purple-800">
-                        <i class="fas fa-book-open"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-md overflow-hidden story-card flex-shrink-0 w-80">
-            <div class="h-48 bg-gradient-to-r from-yellow-500 to-yellow-700 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-hand-holding-heart text-white text-6xl opacity-30"></i>
-                </div>
-                <div class="absolute bottom-4 left-4">
-                    <span class="bg-white text-yellow-800 text-xs font-semibold px-2 py-1 rounded">Local Wisdom</span>
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center mb-3">
-                    <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
-                        <i class="fas fa-user text-gray-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold">Pak Budi</h4>
-                        <p class="text-gray-500 text-sm">Pulau Banyak</p>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Smong: Kunci Keselamatan</h3>
-                <p class="text-gray-600 mb-4">"Dulu nenek moyang kami bilang, kalau air laut surut tiba-tiba, lari ke bukit. Itu 'smong'..."</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded-full">Tradisi</span>
-                        <span class="text-xs bg-teal-100 text-teal-800 px-2 py-1 rounded-full">Edukasi</span>
-                    </div>
-                    <button onclick="showStory('smong')" class="text-yellow-600 hover:text-yellow-800">
-                        <i class="fas fa-book-open"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-md overflow-hidden story-card flex-shrink-0 w-80">
-            <div class="h-48 bg-gradient-to-r from-red-500 to-red-700 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <i class="fas fa-book-reader text-white text-6xl opacity-30"></i>
-                </div>
-                <div class="absolute bottom-4 left-4">
-                    <span class="bg-white text-red-800 text-xs font-semibold px-2 py-1 rounded">Lessons Learned</span>
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="flex items-center mb-3">
-                    <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
-                        <i class="fas fa-user text-gray-600"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold">Tim Relawan</h4>
-                        <p class="text-gray-500 text-sm">Indonesia</p>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Evolusi Penanganan Bencana</h3>
-                <p class="text-gray-600 mb-4">"20 tahun lalu kami belajar, sekarang kami terapkan sistem peringatan dini dan evakuasi yang lebih baik..."</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Teknologi</span>
-                        <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">Sistem</span>
-                    </div>
-                    <button onclick="showStory('relawan')" class="text-red-600 hover:text-red-800">
-                        <i class="fas fa-book-open"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
-
-<style>
-    /* Sembunyikan scrollbar tapi tetap bisa di-scroll */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
-    }
-</style>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </div>
                             <div>
                                 <h4 class="font-semibold">Anonymous Survivor</h4>
                                 <p class="text-gray-500 text-sm">Banda Aceh</p>
