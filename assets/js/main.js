@@ -1,8 +1,10 @@
  document.addEventListener('DOMContentLoaded', function() {
-        
-        // GANTI DENGAN ACCESS TOKEN MAPBOX LO
-        mapboxgl.accessToken = 'pk.eyJ1IjoiemhhZnJhbnp6IiwiYSI6ImNtZWxjNWQ4NDBib2EybHM2aXVuaXRidjQifQ.kPFBCelmb9ORs2S4sUENfQ'; 
 
+    // GANTI DENGAN ACCESS TOKEN MAPBOX LO
+    mapboxgl.accessToken = 'pk.eyJ1IjoiemhhZnJhbnp6IiwiYSI6ImNtZWxjNWQ4NDBib2EybHM2aXVuaXRidjQifQ.kPFBCelmb9ORs2S4sUENfQ';
+
+    // Fungsi untuk menginisialisasi peta dengan data cerita
+    function initializeMap(stories) {
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
@@ -23,44 +25,55 @@
             });
             map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
         });
+
+        stories.forEach(story => {
+            const el = document.createElement('div');
+            el.className = 'marker';
+
+            new mapboxgl.Marker(el)
+                .setLngLat(story.coordinates)
+                .setPopup(
+                    new mapboxgl.Popup({ offset: 25 })
+                        .setHTML(`
+                            <h4 class="font-semibold text-lg mb-1">${story.title}</h4>
+                            <p class="text-gray-600 text-sm mb-2">${story.location} &bull; ${story.type}</p>
+                            <p class="text-gray-700">${story.content}</p>
+                            <a href="#stories" class="text-cyan-600 hover:underline mt-2 inline-block">Read More</a>
+                        `)
+                )
+                .addTo(map);
+        });
+    }
+
+    // --- INI BAGIAN UTAMANYA ---
+    // Mengambil data cerita dari file JSON
+    fetch('assets/data/stories.json')
+        .then(response => response.json()) // Mengubah data mentah menjadi objek JavaScript
+        .then(data => {
+            // Setelah data berhasil didapat, panggil fungsi untuk menampilkan peta
+            initializeMap(data);
+        })
+        .catch(error => console.error('Error memuat data cerita:', error)); // Menampilkan error jika gagal
+
+    // ... (Kode untuk Simulasi Kuis Interaktif diletakkan di sini, di luar fetch) ...
+    const scenarioTitle = document.getElementById('scenario-title');
+    // dst...
+
+});
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        map.on('style.load', () => {
+            map.addSource('mapbox-dem', {
+                'type': 'raster-dem',
+                'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+                'tileSize': 512,
+                'maxzoom': 14
+            });
+            map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+        });
         
-        const stories = [
-            {
-                location: 'Banda Aceh',
-                coordinates: [95.3213, 5.5539],
-                title: 'The Wave That Changed Everything',
-                content: 'I was 12 years old when the water came. The sound still haunts me...',
-                type: 'Tsunami'
-            },
-            {
-                location: 'Meulaboh',
-                coordinates: [96.1264, 4.1458],
-                title: 'Rebuilding Our Village Together',
-                content: 'We had nothing left but each other. The gotong royong spirit is what saved us...',
-                type: 'Recovery'
-            },
-            {
-                location: 'Calang',
-                coordinates: [95.9189, 4.5804],
-                title: 'Lessons from the Field: Flash Flood',
-                content: 'It was midnight when the flash flood came. Our neighbors helped us evacuate to a higher place...',
-                type: 'Tsunami'
-            },
-            {
-                location: 'Lhokseumawe',
-                coordinates: [97.1472, 5.1768],
-                title: 'From Conflict to Coffee Shop',
-                content: 'My warung kopi became a neutral ground. Former enemies now share tables and stories...',
-                type: 'Peace'
-            },
-            {
-                location: 'Pulau Banyak',
-                coordinates: [97.2372, 2.1158],
-                title: 'Smong, The Whispering Sea',
-                content: 'Our elders taught us to recognize the signs. When the sea recedes unexpectedly, we run to the hills...',
-                type: 'Local Wisdom'
-            }
-        ];
+        const stories = fetch
 
         stories.forEach(story => {
             const el = document.createElement('div');
