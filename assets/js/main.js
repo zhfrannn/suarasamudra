@@ -396,4 +396,105 @@ document.addEventListener('DOMContentLoaded', function() {
     // Make functions globally available
     window.startQuiz = startQuiz;
     window.trackEvent = trackEvent;
+    
+    // =================================================================
+    // INTERACTIVE BUTTON ENHANCEMENTS
+    // =================================================================
+    
+    // Add ripple effect to buttons
+    function addRippleEffect() {
+        const rippleButtons = document.querySelectorAll('.btn-ripple');
+        
+        rippleButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    }
+    
+    // Button loading state
+    window.setButtonLoading = function(buttonElement, loading = true) {
+        if (loading) {
+            buttonElement.classList.add('btn-loading');
+            buttonElement.disabled = true;
+        } else {
+            buttonElement.classList.remove('btn-loading');
+            buttonElement.disabled = false;
+        }
+    };
+    
+    // Enhanced contribution form submission
+    window.submitContribution = async function() {
+        const button = event.target;
+        setButtonLoading(button, true);
+        
+        try {
+            // Simulate form submission
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Show success message
+            alert('Story berhasil dikirim! Terima kasih telah berbagi pengalaman Anda.');
+            
+            trackEvent('contribution_submitted', { method: 'whatsapp' });
+        } catch (error) {
+            alert('Terjadi kesalahan. Silakan coba lagi.');
+        } finally {
+            setButtonLoading(button, false);
+        }
+    };
+    
+    // Initialize interactive features
+    addRippleEffect();
+    
+    // Add floating action button for quick actions
+    const floatingBtn = document.createElement('button');
+    floatingBtn.className = 'btn-floating';
+    floatingBtn.innerHTML = '<i class="fas fa-plus"></i>';
+    floatingBtn.title = 'Quick Actions';
+    floatingBtn.onclick = function() {
+        const menu = document.createElement('div');
+        menu.className = 'fixed bottom-20 right-6 bg-white rounded-lg shadow-xl p-4 z-1000';
+        menu.innerHTML = `
+            <div class="flex flex-col gap-2">
+                <button class="btn-primary btn-icon btn-ripple text-sm" onclick="window.location.href='contribute.html'">
+                    <i class="fas fa-share-alt mr-2"></i> Share Story
+                </button>
+                <button class="btn-secondary btn-icon btn-ripple text-sm" onclick="window.location.href='interactive.html'">
+                    <i class="fas fa-gamepad mr-2"></i> Take Quiz
+                </button>
+                <button class="btn-secondary btn-icon btn-ripple text-sm" onclick="window.location.href='stories.html'">
+                    <i class="fas fa-book-open mr-2"></i> Browse Stories
+                </button>
+            </div>
+        `;
+        
+        document.body.appendChild(menu);
+        
+        // Close menu when clicking outside
+        setTimeout(() => {
+            document.addEventListener('click', function closeMenu(e) {
+                if (!menu.contains(e.target) && e.target !== floatingBtn) {
+                    menu.remove();
+                    document.removeEventListener('click', closeMenu);
+                }
+            });
+        }, 100);
+    };
+    
+    document.body.appendChild(floatingBtn);
 });
