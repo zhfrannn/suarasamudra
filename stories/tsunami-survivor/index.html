@@ -32,8 +32,17 @@
     </header>
     <main class="flex-grow">
         <section class="py-16 bg-white">
-            <div class="container mx-auto px-4 space-y-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Wave That Changed Everything</h2>
+            <div class="container mx-auto px-4 max-w-4xl space-y-16">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The Wave That Changed Everything</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                </div>
+
+                <article class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-gray-800">Story Narration</h3>
+                    <p class="text-gray-700 leading-relaxed">I was 12 years old when the ocean pulled back and left the shore dry. Curious villagers walked out to collect flopping fish, but my grandmother screamed for us to run. The ground shook as we climbed the hill, and moments later a wall of water swallowed the coast. Houses vanished. Boats smashed into trees. I clung to my brother's hand and promised we would survive.</p>
+                    <p class="text-gray-700 leading-relaxed">Days later, the sea was silent. We slept in a school, sharing rice and stories with other families who had nothing left. Volunteers came with clean water and warm blankets, and slowly the fear turned into determination. We rebuilt our home with bamboo and hope, learning evacuation routes and the sound of sirens. The ocean that once took everything now reminds us to prepare and to care for one another.</p>
+                </article>
 
                 <div>
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Interactive Learning Video</h3>
@@ -43,15 +52,51 @@
                 </div>
 
                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Story Narration</h3>
-                    <p class="text-gray-700 leading-relaxed">I was 12 years old when the water came. The roar was like a thousand trains and changed my life forever. This is my journey of survival.</p>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Comic</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+1" alt="Comic page 1" class="comic-panel w-full rounded-lg">
+                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+2" alt="Comic page 2" class="comic-panel w-full rounded-lg">
+                    </div>
                 </div>
 
                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Comic</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+1" alt="Comic page 1" class="w-full rounded-lg">
-                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+2" alt="Comic page 2" class="w-full rounded-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Disaster Preparedness Quiz</h3>
+                    <p class="text-gray-700 mb-6">Test your knowledge with this short quiz and see how ready you are for the next big wave.</p>
+                    <div class="bg-white rounded-lg shadow-sm p-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800" id="scenario-title">Loading Quiz...</h3>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-sm text-gray-600">
+                                    Progress: <span id="progress-text">0%</span>
+                                </div>
+                                <div class="w-32 h-2 bg-gray-200 rounded-full simulation-progress">
+                                    <div class="simulation-progress-bar rounded-full" id="progress-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <p class="text-gray-700 text-lg leading-relaxed" id="scenario-text">
+                                Initializing interactive quiz system...
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 mb-8" id="choices-container">
+                            <div class="animate-pulse">
+                                <div class="h-16 bg-gray-200 rounded-lg mb-4"></div>
+                                <div class="h-16 bg-gray-200 rounded-lg mb-4"></div>
+                                <div class="h-16 bg-gray-200 rounded-lg"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center">
+                            <button id="restart-btn" class="btn-secondary btn-icon btn-ripple hidden" onclick="startQuiz()">
+                                <i class="fas fa-redo mr-2"></i> Restart Quiz
+                            </button>
+                            <button id="next-btn" class="btn-primary btn-icon btn-ripple hidden">
+                                <i class="fas fa-arrow-right mr-2"></i> Next Question
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,5 +107,6 @@
             <p>&copy; 2024 Suara Samudra. All rights reserved.</p>
         </div>
     </footer>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>
