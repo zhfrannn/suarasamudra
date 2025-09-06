@@ -1,130 +1,66 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siaga Bencana - Edukasi Kebencanaan Interaktif</title>
-    
+    <title>Tsunami Survivor - Suara Samudra</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Menambahkan font Poppins ke seluruh halaman */
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        /* Efek gradien untuk hero section */
-        .hero-gradient {
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-        }
-    </style>
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-800">
-
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-3">
-                <div class="bg-blue-500 text-white p-2 rounded-full">
-                    <i class="fa-solid fa-house-flood-water"></i>
-                </div>
-                <h1 class="text-xl font-bold text-blue-600">Siaga Bencana</h1>
-            </a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#edukasi" class="text-gray-600 hover:text-blue-500 transition duration-300">Edukasi</a>
-                <a href="#kisah" class="text-gray-600 hover:text-blue-500 transition duration-300">Kisah</a>
-                <a href="#kuis" class="text-gray-600 hover:text-blue-500 transition duration-300">Kuis</a>
-                <a href="#tentang" class="text-gray-600 hover:text-blue-500 transition duration-300">Tentang Kami</a>
-            </nav>
-            <button class="md:hidden">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+<body class="min-h-screen flex flex-col bg-white">
+    <header class="ocean-gradient text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <a href="../../index.html" class="flex items-center mb-4 md:mb-0">
+                    <div class="wave-pattern rounded-full p-3 mr-4">
+                        <i class="fas fa-wave-square text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">Suara Samudra</h1>
+                        <p class="text-sm md:text-base opacity-80">AI-Powered Story Archive of Aceh</p>
+                    </div>
+                </a>
+                <nav class="flex space-x-1 md:space-x-4">
+                    <a href="../../about.html" class="px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition">About</a>
+                    <a href="../../stories.html" class="px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition">Stories</a>
+                    <a href="../../interactive.html" class="px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition">Interactive</a>
+                    <a href="../../contribute.html" class="px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition">Contribute</a>
+                </nav>
+            </div>
         </div>
     </header>
+    <main class="flex-grow">
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 space-y-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Wave That Changed Everything</h2>
 
-    <main>
-        <section class="hero-gradient text-white text-center py-20 px-6">
-            <div class="container mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Jadilah Pahlawan Siaga Bencana</h2>
-                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Pelajari, Pahami, dan Bersiaplah. Pengetahuan adalah perlindungan terbaikmu.</p>
-                <a href="#edukasi" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105">
-                    Mulai Belajar Sekarang!
-                </a>
-            </div>
-        </section>
-
-        <section id="edukasi" class="py-16">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl font-bold text-gray-800">Pilih Petualangan Belajarmu</h3>
-                    <p class="text-gray-600 mt-2">Empat cara seru untuk menjadi lebih siap menghadapi bencana.</p>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Interactive Learning Video</h3>
+                    <div class="w-full rounded-lg overflow-hidden mb-6" style="height: 400px;">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Interactive Learning Video" allowfullscreen></iframe>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Story Narration</h3>
+                    <p class="text-gray-700 leading-relaxed">I was 12 years old when the water came. The roar was like a thousand trains and changed my life forever. This is my journey of survival.</p>
+                </div>
 
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <div class="bg-red-500 text-white text-5xl text-center py-8">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold mb-2">Video Edukasi</h4>
-                            <p class="text-gray-600 mb-4">Tonton animasi dan video interaktif untuk memahami jenis-jenis bencana.</p>
-                            <a href="#" class="font-bold text-blue-600 hover:underline">Lihat Video &rarr;</a>
-                        </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Comic</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+1" alt="Comic page 1" class="w-full rounded-lg">
+                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+2" alt="Comic page 2" class="w-full rounded-lg">
                     </div>
-
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <div class="bg-yellow-500 text-white text-5xl text-center py-8">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold mb-2">Komik Digital</h4>
-                            <p class="text-gray-600 mb-4">Ikuti cerita bergambar yang seru dan penuh pelajaran kesiapsiagaan.</p>
-                            <a href="#" class="font-bold text-blue-600 hover:underline">Baca Komik &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div id="kisah" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <div class="bg-green-500 text-white text-5xl text-center py-8">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold mb-2">Narasi Cerita</h4>
-                            <p class="text-gray-600 mb-4">Dengarkan dan baca kisah nyata dari para penyintas dan relawan.</p>
-                            <a href="#" class="font-bold text-blue-600 hover:underline">Jelajahi Kisah &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div id="kuis" class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                        <div class="bg-purple-500 text-white text-5xl text-center py-8">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold mb-2">Kuis Simulasi</h4>
-                            <p class="text-gray-600 mb-4">Uji pengetahuanmu dalam simulasi interaktif yang menantang.</p>
-                            <a href="#" class="font-bold text-blue-600 hover:underline">Mulai Kuis &rarr;</a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
     </main>
-
-    <footer id="tentang" class="bg-gray-800 text-white mt-12">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2025 Siaga Bencana. Dibuat untuk Edukasi dan Kesiapsiagaan.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
-            </div>
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Suara Samudra. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
