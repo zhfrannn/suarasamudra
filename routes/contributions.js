@@ -216,8 +216,7 @@ router.get('/stats/overview', async (req, res) => {
                 GROUP BY DATE(created_at)
                 ORDER BY date DESC
             `)
-        ];
-        )
+        ]);
 
         res.json({
             status_distribution: statusStats,
