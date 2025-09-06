@@ -217,6 +217,7 @@ router.get('/stats/overview', async (req, res) => {
                 ORDER BY date DESC
             `)
         ];
+        )
 
         res.json({
             status_distribution: statusStats,
