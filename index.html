@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suara Samudra - AI-Powered Story Archive</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Suara Samudra | Aceh Tsunami Stories & Peace Archive</title>
+    <meta name="description" content="Suara Samudra is an AI-powered archive preserving Aceh's tsunami and peace stories. Explore, learn, and contribute to community resilience.">
+    <meta name="keywords" content="Aceh stories, tsunami, peace, archive, AI">
+    <meta property="og:title" content="Suara Samudra - Aceh Tsunami and Peace Stories">
+    <meta property="og:description" content="AI-powered archive preserving Aceh's tsunami and peace stories.">
+    <meta property="og:image" content="assets/aceh_community.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Suara Samudra - Aceh Stories Archive">
+    <meta name="twitter:description" content="Explore and contribute to Aceh's tsunami and peace stories.">
+    <link rel="icon" href="assets/aceh_community.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Suara Samudra","url":"https://example.com","potentialAction":{"@type":"SearchAction","target":"https://example.com/stories?query={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/css/style.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css"></noscript>
 </head>
 <body class="min-h-screen flex flex-col">
     <header class="ocean-gradient text-white shadow-lg">
@@ -162,7 +173,7 @@
                     </div>
                     <div class="hidden md:block relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-20"></div>
-                        <img src="assets/aceh_community.png" alt="Aceh community" class="w-full h-full object-cover">
+                        <img loading="lazy" src="assets/aceh_community.png" alt="Aceh community" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -439,7 +450,7 @@
                 </div>
                 <div class="hidden md:block relative">
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-800 to-transparent opacity-50"></div>
-                    <img src="https://images.unsplash.com/photo-1540959733102-9c887a63c473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Community board" class="w-full h-full object-cover">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1540959733102-9c887a63c473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Community board" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -726,5 +737,13 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-1234567890"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </html>
