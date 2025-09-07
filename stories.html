@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories - Suara Samudra</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Aceh Stories Archive | Suara Samudra</title>
+    <meta name="description" content="Browse Aceh tsunami and peace stories in the Suara Samudra archive.">
+    <meta name="keywords" content="Aceh stories, archive, tsunami, peace">
+    <link rel="icon" href="assets/aceh_community.png">
+    <script defer src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/css/style.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css"></noscript>
 </head>
 <body class="min-h-screen flex flex-col">
     <header class="ocean-gradient text-white shadow-lg">
@@ -360,6 +364,14 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-1234567890"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </body>
 </html>
