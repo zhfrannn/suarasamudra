@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suara Samudra - AI-Powered Story Archive</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Contribute to Suara Samudra | Aceh Stories</title>
+    <meta name="description" content="Contribute your voice to Suara Samudra, the AI-powered Aceh tsunami and peace stories archive.">
+    <meta name="keywords" content="Aceh stories, contribute, share, tsunami, peace">
+    <link rel="icon" href="assets/aceh_community.png">
+    <script defer src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <script defer src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/css/style.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.min.css"></noscript>
 </head>
 <body class="min-h-screen flex flex-col">
     <header class="ocean-gradient text-white shadow-lg">
@@ -216,16 +220,17 @@
             </div>
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
                 <div class="h-12 flex items-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Logo_Universitas_Syiah_Kuala.png/1200px-Logo_Universitas_Syiah_Kuala.png" alt="USK" class="h-full object-contain opacity-70 hover:opacity-100 transition">
+                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Logo_Universitas_Syiah_Kuala.png/1200px-Logo_Universitas_Syiah_Kuala.png" alt="USK" class="h-full object-contain opacity-70 hover:opacity-100 transition">
                 </div>
                 <div class="h-12 flex items-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/BNPB_logo.svg/1200px-BNPB_logo.svg.png" alt="BNPB" class="h-full object-contain opacity-70 hover:opacity-100 transition">
+                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/BNPB_logo.svg/1200px-BNPB_logo.svg.png" alt="BNPB" class="h-full object-contain opacity-70 hover:opacity-100 transition">
+                </div>
                 </div>
                 <div class="h-12 flex items-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/BMKG_logo.svg/1200px-BMKG_logo.svg.png" alt="BMKG" class="h-full object-contain opacity-70 hover:opacity-100 transition">
+                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/BMKG_logo.svg/1200px-BMKG_logo.svg.png" alt="BMKG" class="h-full object-contain opacity-70 hover:opacity-100 transition">
                 </div>
                 <div class="h-12 flex items-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/TDMRC_Logo.png/1200px-TDMRC_Logo.png" alt="TDMRC" class="h-full object-contain opacity-70 hover:opacity-100 transition">
+                    <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/TDMRC_Logo.png/1200px-TDMRC_Logo.png" alt="TDMRC" class="h-full object-contain opacity-70 hover:opacity-100 transition">
                 </div>
             </div>
         </div>
@@ -370,5 +375,13 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
+    <script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-1234567890"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </html>
