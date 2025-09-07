@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsunami Survivor - Suara Samudra</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>The Wave That Changed Everything | Suara Samudra</title>
+    <meta name="description" content="A survivor's story of the 2004 tsunami in Banda Aceh and the lessons learned about community resilience.">
+    <link rel="icon" href="../../assets/aceh_community.png">
+    <script defer src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preload" href="../../assets/css/style.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../../assets/css/style.min.css"></noscript>
 </head>
-<body class="min-h-screen flex flex-col bg-white">
+<body class="min-h-screen flex flex-col bg-gray-50">
     <header class="ocean-gradient text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -30,83 +33,595 @@
             </div>
         </div>
     </header>
+
     <main class="flex-grow">
+        <!-- Hero Section -->
         <section class="py-16 bg-white">
-            <div class="container mx-auto px-4 max-w-4xl space-y-16">
-                <div class="text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The Wave That Changed Everything</h2>
-                    <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-                </div>
-
-                <article class="space-y-6">
-                    <h3 class="text-2xl font-semibold text-gray-800">Story Narration</h3>
-                    <p class="text-gray-700 leading-relaxed">I was 12 years old when the ocean pulled back and left the shore dry. Curious villagers walked out to collect flopping fish, but my grandmother screamed for us to run. The ground shook as we climbed the hill, and moments later a wall of water swallowed the coast. Houses vanished. Boats smashed into trees. I clung to my brother's hand and promised we would survive.</p>
-                    <p class="text-gray-700 leading-relaxed">Days later, the sea was silent. We slept in a school, sharing rice and stories with other families who had nothing left. Volunteers came with clean water and warm blankets, and slowly the fear turned into determination. We rebuilt our home with bamboo and hope, learning evacuation routes and the sound of sirens. The ocean that once took everything now reminds us to prepare and to care for one another.</p>
-                </article>
-
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Interactive Learning Video</h3>
-                    <div class="w-full rounded-lg overflow-hidden mb-6" style="height: 400px;">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Interactive Learning Video" allowfullscreen></iframe>
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center mb-4">
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 text-sm rounded-full">Tsunami Survivor Story</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">The Wave That Changed Everything</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                    <p class="text-xl text-gray-600">A 12-year-old's experience during the 2004 tsunami in Banda Aceh</p>
+                    <div class="flex items-center justify-center mt-4 text-gray-500">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Banda Aceh, December 26, 2004</span>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Digital Comic</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+1" alt="Comic page 1" class="comic-panel w-full rounded-lg">
-                        <img src="https://via.placeholder.com/400x600?text=Comic+Page+2" alt="Comic page 2" class="comic-panel w-full rounded-lg">
+        <!-- Educational Video Section -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                            <i class="fas fa-play-circle text-blue-600 mr-3"></i>Educational Video: Understanding Tsunamis
+                        </h3>
+                        <p class="text-gray-600">Learn about tsunami formation, warning signs, and evacuation procedures</p>
+                    </div>
+                    <div class="relative" style="padding-bottom: 56.25%; height: 0;">
+                        <iframe 
+                            class="absolute top-0 left-0 w-full h-full" 
+                            src="https://www.youtube.com/embed/Wx9vPv-T51I" 
+                            title="Tsunami Education Video" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-4 bg-blue-50">
+                        <p class="text-sm text-blue-800">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            This video explains the science behind tsunamis and how traditional knowledge like "Smong" can save lives.
+                        </p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Disaster Preparedness Quiz</h3>
-                    <p class="text-gray-700 mb-6">Test your knowledge with this short quiz and see how ready you are for the next big wave.</p>
-                    <div class="bg-white rounded-lg shadow-sm p-8">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-2xl font-bold text-gray-800" id="scenario-title">Loading Quiz...</h3>
-                            <div class="flex items-center space-x-4">
-                                <div class="text-sm text-gray-600">
-                                    Progress: <span id="progress-text">0%</span>
-                                </div>
-                                <div class="w-32 h-2 bg-gray-200 rounded-full simulation-progress">
-                                    <div class="simulation-progress-bar rounded-full" id="progress-bar" style="width: 0%"></div>
-                                </div>
-                            </div>
+        <!-- Story Narration Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                        <i class="fas fa-book-open text-green-600 mr-3"></i>Full Story Narration
+                    </h3>
+                    
+                    <div class="prose prose-lg max-w-none">
+                        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-6 mb-8">
+                            <p class="text-lg font-medium text-blue-900 mb-4">
+                                "I was 12 years old when the water came. The sound still haunts me - like a thousand trains coming at once."
+                            </p>
+                            <p class="text-sm text-blue-700">- Anonymous Survivor, Banda Aceh</p>
                         </div>
 
-                        <div class="mb-8">
-                            <p class="text-gray-700 text-lg leading-relaxed" id="scenario-text">
-                                Initializing interactive quiz system...
+                        <div class="space-y-6 text-gray-700 leading-relaxed">
+                            <p class="text-lg">
+                                It was a Sunday morning, December 26, 2004. I was playing with my younger brother in our yard when the ground started shaking. At first, we thought it was just another small earthquake - we were used to those in Aceh. But this one was different. It lasted much longer, and the shaking was so strong that we could barely stand.
+                            </p>
+
+                            <p class="text-lg">
+                                My father came running out of the house, his face pale with worry. "Tsunami!" he shouted, using a word I had only heard in the old stories our grandmother told us. The "Smong" - the traditional warning our elders had passed down through generations. When the earth shakes and the sea retreats, you run to the hills.
+                            </p>
+
+                            <p class="text-lg">
+                                We could see the ocean from our house, and what we saw next will be burned in my memory forever. The water was pulling back, back, back - further than I had ever seen. Fish were flopping on the exposed seabed, and some curious villagers were walking out to collect them. My father screamed at them to run, but they couldn't hear him from that distance.
+                            </p>
+
+                            <p class="text-lg">
+                                Then came the sound. Like a freight train, like thunder, like the earth itself was crying out. A wall of dark water, taller than the coconut trees, was racing toward the shore. My father grabbed my hand and my mother scooped up my baby sister. "To the hills! Now!" he commanded.
+                            </p>
+
+                            <p class="text-lg">
+                                We ran. We ran faster than I ever thought possible. Behind us, I could hear the water crashing, the sound of houses being torn apart, cars being tossed like toys. I didn't dare look back until we reached the mosque on the hill. When I finally turned around, our village was gone. Everything was underwater.
+                            </p>
+
+                            <p class="text-lg">
+                                For three days, we stayed on that hill with hundreds of other survivors. We had nothing but the clothes on our backs. No food, no clean water, no shelter. But what I remember most wasn't the hunger or the fear - it was how people came together. Neighbors who had been feuding for years shared their last piece of bread. Former enemies became family.
+                            </p>
+
+                            <p class="text-lg">
+                                The international aid came, and slowly we began to rebuild. But the real rebuilding wasn't just about houses and roads - it was about our hearts, our community, our understanding of what truly matters. The tsunami took everything we owned, but it also taught us that we are stronger together than apart.
+                            </p>
+
+                            <p class="text-lg font-semibold text-blue-800">
+                                Today, twenty years later, I work as a disaster preparedness educator. I share this story not to frighten people, but to honor those we lost and to ensure that the wisdom of our elders - the Smong - continues to save lives. When the earth shakes and the sea retreats, you run to the hills. This is our gift to future generations.
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="space-y-4 mb-8" id="choices-container">
-                            <div class="animate-pulse">
-                                <div class="h-16 bg-gray-200 rounded-lg mb-4"></div>
-                                <div class="h-16 bg-gray-200 rounded-lg mb-4"></div>
-                                <div class="h-16 bg-gray-200 rounded-lg"></div>
+        <!-- Digital Comic Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-images text-purple-600 mr-3"></i>Digital Comic: The Day the Sea Came
+                    </h3>
+                    <p class="text-gray-600">Experience the story through visual storytelling</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Comic Panel 1 -->
+                    <div class="comic-panel bg-white rounded-lg p-4">
+                        <div class="h-64 bg-gradient-to-b from-yellow-200 to-orange-300 rounded-lg flex items-center justify-center mb-4 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 transform -skew-x-12"></div>
+                            <div class="text-center z-10">
+                                <i class="fas fa-home text-6xl text-orange-800 mb-2"></i>
+                                <p class="text-orange-900 font-bold">A Peaceful Morning</p>
                             </div>
                         </div>
+                        <div class="bg-yellow-100 rounded-lg p-3">
+                            <p class="text-sm font-medium text-yellow-800">"It was just another Sunday morning in our village..."</p>
+                        </div>
+                    </div>
 
-                        <div class="flex justify-between items-center">
-                            <button id="restart-btn" class="btn-secondary btn-icon btn-ripple hidden" onclick="startQuiz()">
-                                <i class="fas fa-redo mr-2"></i> Restart Quiz
+                    <!-- Comic Panel 2 -->
+                    <div class="comic-panel bg-white rounded-lg p-4">
+                        <div class="h-64 bg-gradient-to-b from-red-200 to-red-400 rounded-lg flex items-center justify-center mb-4 relative">
+                            <div class="animate-pulse">
+                                <i class="fas fa-exclamation-triangle text-6xl text-red-800 mb-2"></i>
+                                <p class="text-red-900 font-bold">The Earth Shakes</p>
+                            </div>
+                        </div>
+                        <div class="bg-red-100 rounded-lg p-3">
+                            <p class="text-sm font-medium text-red-800">"The ground trembled beneath our feet for what felt like forever..."</p>
+                        </div>
+                    </div>
+
+                    <!-- Comic Panel 3 -->
+                    <div class="comic-panel bg-white rounded-lg p-4">
+                        <div class="h-64 bg-gradient-to-b from-blue-200 to-blue-400 rounded-lg flex items-center justify-center mb-4 relative">
+                            <div class="text-center">
+                                <i class="fas fa-water text-6xl text-blue-800 mb-2"></i>
+                                <p class="text-blue-900 font-bold">The Sea Retreats</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-100 rounded-lg p-3">
+                            <p class="text-sm font-medium text-blue-800">"The ocean pulled back further than we had ever seen..."</p>
+                        </div>
+                    </div>
+
+                    <!-- Comic Panel 4 -->
+                    <div class="comic-panel bg-white rounded-lg p-4">
+                        <div class="h-64 bg-gradient-to-b from-gray-300 to-gray-500 rounded-lg flex items-center justify-center mb-4 relative">
+                            <div class="text-center">
+                                <i class="fas fa-running text-6xl text-gray-800 mb-2"></i>
+                                <p class="text-gray-900 font-bold">Run to the Hills!</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <p class="text-sm font-medium text-gray-800">"My father shouted the ancient warning: 'Smong! Run to the hills!'"</p>
+                        </div>
+                    </div>
+
+                    <!-- Comic Panel 5 -->
+                    <div class="comic-panel bg-white rounded-lg p-4">
+                        <div class="h-64 bg-gradient-to-b from-indigo-300 to-indigo-600 rounded-lg flex items-center justify-center mb-4 relative">
+                            <div class="text-center">
+                                <i class="fas fa-mountain text-6xl text-indigo-100 mb-2"></i>
+                                <p class="text-indigo-100 font-bold">Safety on High Ground</p>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-100 rounded-lg p-3">
+                            <p class="text-sm font-medium text-indigo-800">"From the hill, we watched our world disappear under the waves..."</p>
+                        </div>
+                    </div>
+
+                    <!-- Comic Panel 6 -->
+                    <div class="comic-panel bg-white rounded-lg p-4">
+                        <div class="h-64 bg-gradient-to-b from-green-200 to-green-400 rounded-lg flex items-center justify-center mb-4 relative">
+                            <div class="text-center">
+                                <i class="fas fa-hands-helping text-6xl text-green-800 mb-2"></i>
+                                <p class="text-green-900 font-bold">Community Strength</p>
+                            </div>
+                        </div>
+                        <div class="bg-green-100 rounded-lg p-3">
+                            <p class="text-sm font-medium text-green-800">"In our darkest hour, we discovered the true meaning of gotong royong..."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Quiz Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                        <i class="fas fa-gamepad text-red-600 mr-3"></i>Interactive Quiz: Test Your Tsunami Knowledge
+                    </h3>
+                    <p class="text-gray-600">Learn from this story and test your disaster preparedness knowledge</p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h4 class="text-2xl font-bold text-gray-800" id="quiz-title">Loading Quiz...</h4>
+                        <div class="flex items-center space-x-4">
+                            <div class="text-sm text-gray-600">
+                                Progress: <span id="quiz-progress-text">0%</span>
+                            </div>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full simulation-progress">
+                                <div class="simulation-progress-bar rounded-full" id="quiz-progress-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <p class="text-gray-700 text-lg leading-relaxed" id="quiz-question">
+                            Initializing tsunami preparedness quiz...
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 mb-8" id="quiz-choices">
+                        <div class="animate-pulse space-y-4">
+                            <div class="h-16 bg-gray-200 rounded-lg"></div>
+                            <div class="h-16 bg-gray-200 rounded-lg"></div>
+                            <div class="h-16 bg-gray-200 rounded-lg"></div>
+                        </div>
+                    </div>
+
+                    <div id="quiz-feedback" class="hidden mb-6">
+                        <!-- Feedback will be inserted here -->
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <button id="quiz-restart" class="btn-secondary btn-icon btn-ripple hidden">
+                            <i class="fas fa-redo mr-2"></i> Restart Quiz
+                        </button>
+                        <div class="flex space-x-4">
+                            <button id="quiz-prev" class="btn-secondary btn-icon btn-ripple hidden">
+                                <i class="fas fa-arrow-left mr-2"></i> Previous
                             </button>
-                            <button id="next-btn" class="btn-primary btn-icon btn-ripple hidden">
-                                <i class="fas fa-arrow-right mr-2"></i> Next Question
+                            <button id="quiz-next" class="btn-primary btn-icon btn-ripple hidden">
+                                Next <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Results -->
+                    <div id="quiz-results" class="hidden text-center">
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-8">
+                            <i class="fas fa-trophy text-6xl text-yellow-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold text-gray-800 mb-4">Quiz Completed!</h4>
+                            <p class="text-lg text-gray-700 mb-4">Your Score: <span id="final-score" class="font-bold text-blue-600"></span></p>
+                            <div id="certificate-message" class="mb-6"></div>
+                            <button onclick="restartTsunamiQuiz()" class="btn-primary btn-icon btn-ripple">
+                                <i class="fas fa-redo mr-2"></i> Take Quiz Again
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Related Stories Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Related Stories</h3>
+                    <p class="text-gray-600">Explore more stories from Aceh's journey of resilience</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <a href="../rebuilding-village/index.html" class="bg-white rounded-lg shadow-sm overflow-hidden story-card hover:shadow-lg transition-shadow">
+                        <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                            <i class="fas fa-hands-helping text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Recovery</span>
+                            <h4 class="text-xl font-bold text-gray-800 mt-3 mb-2">Rebuilding Our Village Together</h4>
+                            <p class="text-gray-600">The power of gotong royong in post-tsunami recovery</p>
+                        </div>
+                    </a>
+
+                    <a href="../smong-whispering-sea/index.html" class="bg-white rounded-lg shadow-sm overflow-hidden story-card hover:shadow-lg transition-shadow">
+                        <div class="h-48 bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                            <i class="fas fa-scroll text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Local Wisdom</span>
+                            <h4 class="text-xl font-bold text-gray-800 mt-3 mb-2">Smong, The Whispering Sea</h4>
+                            <p class="text-gray-600">Traditional tsunami warnings that save lives</p>
+                        </div>
+                    </a>
+
+                    <a href="../../contribute.html" class="bg-white rounded-lg shadow-sm overflow-hidden story-card hover:shadow-lg transition-shadow border-2 border-dashed border-gray-300 hover:border-blue-400">
+                        <div class="h-48 bg-gray-50 flex items-center justify-center">
+                            <i class="fas fa-plus text-6xl text-gray-400"></i>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">Share Your Story</h4>
+                            <p class="text-gray-600">Help preserve Aceh's collective memory</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Suara Samudra. All rights reserved.</p>
+
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Suara Samudra</h3>
+                    <p class="text-gray-400">An AI-powered archive preserving Aceh's stories of disaster resilience and peace.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../../about.html" class="text-gray-400 hover:text-white transition">About Project</a></li>
+                        <li><a href="../../stories.html" class="text-gray-400 hover:text-white transition">Explore Stories</a></li>
+                        <li><a href="../../interactive.html" class="text-gray-400 hover:text-white transition">Interactive Tools</a></li>
+                        <li><a href="../../contribute.html" class="text-gray-400 hover:text-white transition">Contribute</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Disaster Preparedness</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Peace Education</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Local Wisdom (Smong)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Psychological Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i> contact@suarasamudra.id
+                    </p>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>© 2024 Suara Samudra. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-    <script src="../../assets/js/main.js"></script>
+
+    <script>
+        // Tsunami Quiz Data
+        const tsunamiQuizData = [
+            {
+                question: "What is the traditional Acehnese warning system for tsunamis called?",
+                choices: [
+                    { text: "Smong", correct: true },
+                    { text: "Saman", correct: false },
+                    { text: "Seudati", correct: false },
+                    { text: "Ratoh Jaroe", correct: false }
+                ],
+                feedback: {
+                    correct: "✅ Correct! Smong is the traditional oral tradition that warns about tsunamis. It teaches that when the earth shakes and the sea retreats, people must run to higher ground.",
+                    incorrect: "❌ The correct answer is Smong. This traditional warning system has been passed down through generations and saved many lives during the 2004 tsunami."
+                }
+            },
+            {
+                question: "According to the story, what should you do when you feel a strong earthquake near the coast?",
+                choices: [
+                    { text: "Wait to see what happens", correct: false },
+                    { text: "Check social media for updates", correct: false },
+                    { text: "Immediately run to higher ground", correct: true },
+                    { text: "Go to the beach to see the waves", correct: false }
+                ],
+                feedback: {
+                    correct: "✅ Excellent! The golden rule is: when you feel a strong earthquake near the coast, don't wait - immediately evacuate to higher ground. Every second counts.",
+                    incorrect: "❌ Never wait or investigate when you feel a strong earthquake near the coast. The correct action is to immediately run to higher ground without delay."
+                }
+            },
+            {
+                question: "What natural warning sign did the survivor notice before the tsunami hit?",
+                choices: [
+                    { text: "The water turned black", correct: false },
+                    { text: "The sea retreated unusually far", correct: true },
+                    { text: "Birds started flying away", correct: false },
+                    { text: "The wind stopped blowing", correct: false }
+                ],
+                feedback: {
+                    correct: "✅ Perfect! When the sea retreats unusually far, exposing the seabed, it's a critical warning sign of an incoming tsunami. This is part of the Smong wisdom.",
+                    incorrect: "❌ The key warning sign mentioned in the story was the sea retreating unusually far, exposing fish on the seabed. This is a critical tsunami warning sign."
+                }
+            },
+            {
+                question: "What does 'gotong royong' mean in the context of disaster recovery?",
+                choices: [
+                    { text: "Individual survival", correct: false },
+                    { text: "Government assistance", correct: false },
+                    { text: "Community cooperation and mutual aid", correct: true },
+                    { text: "International relief efforts", correct: false }
+                ],
+                feedback: {
+                    correct: "✅ Exactly right! Gotong royong represents the Indonesian spirit of community cooperation and mutual aid, which was crucial for recovery after the tsunami.",
+                    incorrect: "❌ Gotong royong refers to community cooperation and mutual aid - the spirit of working together that helped communities recover after the disaster."
+                }
+            },
+            {
+                question: "How long should you stay in the evacuation area after a tsunami warning?",
+                choices: [
+                    { text: "Until you see the water recede", correct: false },
+                    { text: "For at least 30 minutes", correct: false },
+                    { text: "Until official authorities give the all-clear", correct: true },
+                    { text: "Until other people start returning", correct: false }
+                ],
+                feedback: {
+                    correct: "✅ Correct! Always wait for official authorities to give the all-clear before returning. Tsunamis can have multiple waves, and the danger may not be over.",
+                    incorrect: "❌ Never return until official authorities give the all-clear. Tsunamis can have multiple waves, and it's dangerous to return too early."
+                }
+            }
+        ];
+
+        let currentQuizQuestion = 0;
+        let quizScore = 0;
+        let quizAnswered = false;
+
+        function initializeTsunamiQuiz() {
+            currentQuizQuestion = 0;
+            quizScore = 0;
+            quizAnswered = false;
+            showQuizQuestion();
+        }
+
+        function showQuizQuestion() {
+            const question = tsunamiQuizData[currentQuizQuestion];
+            
+            document.getElementById('quiz-title').textContent = `Question ${currentQuizQuestion + 1} of ${tsunamiQuizData.length}`;
+            document.getElementById('quiz-question').textContent = question.question;
+            
+            const choicesContainer = document.getElementById('quiz-choices');
+            choicesContainer.innerHTML = '';
+            
+            question.choices.forEach((choice, index) => {
+                const button = document.createElement('button');
+                button.className = 'choice-btn w-full text-left p-4 rounded-lg bg-gray-50 hover:bg-blue-50 transition border-2 border-transparent hover:border-blue-200';
+                button.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-blue-600 font-bold">${String.fromCharCode(65 + index)}</span>
+                        </div>
+                        <span class="text-gray-800">${choice.text}</span>
+                    </div>
+                `;
+                button.onclick = () => selectQuizAnswer(index);
+                choicesContainer.appendChild(button);
+            });
+
+            // Update progress
+            const progress = ((currentQuizQuestion) / tsunamiQuizData.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${progress}%`;
+            document.getElementById('quiz-progress-text').textContent = `${Math.round(progress)}%`;
+
+            // Hide feedback and buttons
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next').classList.add('hidden');
+            document.getElementById('quiz-prev').classList.toggle('hidden', currentQuizQuestion === 0);
+            
+            quizAnswered = false;
+        }
+
+        function selectQuizAnswer(selectedIndex) {
+            if (quizAnswered) return;
+            
+            const question = tsunamiQuizData[currentQuizQuestion];
+            const isCorrect = question.choices[selectedIndex].correct;
+            
+            if (isCorrect) {
+                quizScore++;
+            }
+            
+            // Update button styles
+            const buttons = document.querySelectorAll('.choice-btn');
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === selectedIndex) {
+                    button.classList.add(isCorrect ? 'bg-green-100 border-green-500' : 'bg-red-100 border-red-500');
+                }
+                if (question.choices[index].correct) {
+                    button.classList.add('bg-green-100', 'border-green-500');
+                }
+            });
+            
+            // Show feedback
+            const feedbackDiv = document.getElementById('quiz-feedback');
+            feedbackDiv.innerHTML = `
+                <div class="p-4 rounded-lg ${isCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}">
+                    <p class="font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'}">${isCorrect ? question.feedback.correct : question.feedback.incorrect}</p>
+                </div>
+            `;
+            feedbackDiv.classList.remove('hidden');
+            
+            // Show next button or finish quiz
+            if (currentQuizQuestion < tsunamiQuizData.length - 1) {
+                document.getElementById('quiz-next').classList.remove('hidden');
+            } else {
+                setTimeout(showQuizResults, 2000);
+            }
+            
+            quizAnswered = true;
+        }
+
+        function nextQuizQuestion() {
+            if (currentQuizQuestion < tsunamiQuizData.length - 1) {
+                currentQuizQuestion++;
+                showQuizQuestion();
+            }
+        }
+
+        function prevQuizQuestion() {
+            if (currentQuizQuestion > 0) {
+                currentQuizQuestion--;
+                quizScore = Math.max(0, quizScore - 1); // Adjust score if going back
+                showQuizQuestion();
+            }
+        }
+
+        function showQuizResults() {
+            const percentage = Math.round((quizScore / tsunamiQuizData.length) * 100);
+            
+            document.getElementById('final-score').textContent = `${quizScore}/${tsunamiQuizData.length} (${percentage}%)`;
+            
+            const certificateMessage = document.getElementById('certificate-message');
+            if (percentage >= 80) {
+                certificateMessage.innerHTML = `
+                    <div class="text-green-600">
+                        <i class="fas fa-certificate text-2xl mb-2"></i>
+                        <p class="font-semibold">Excellent! You have a strong understanding of tsunami preparedness!</p>
+                    </div>
+                `;
+            } else if (percentage >= 60) {
+                certificateMessage.innerHTML = `
+                    <div class="text-blue-600">
+                        <i class="fas fa-medal text-2xl mb-2"></i>
+                        <p class="font-semibold">Good job! You have a solid foundation in tsunami safety.</p>
+                    </div>
+                `;
+            } else {
+                certificateMessage.innerHTML = `
+                    <div class="text-orange-600">
+                        <i class="fas fa-book text-2xl mb-2"></i>
+                        <p class="font-semibold">Keep learning! Review the story and try again to improve your knowledge.</p>
+                    </div>
+                `;
+            }
+            
+            // Hide quiz content and show results
+            document.querySelector('.bg-white.rounded-xl.shadow-lg.p-8').style.display = 'none';
+            document.getElementById('quiz-results').classList.remove('hidden');
+            
+            // Update progress to 100%
+            document.getElementById('quiz-progress-bar').style.width = '100%';
+            document.getElementById('quiz-progress-text').textContent = '100%';
+        }
+
+        function restartTsunamiQuiz() {
+            document.querySelector('.bg-white.rounded-xl.shadow-lg.p-8').style.display = 'block';
+            document.getElementById('quiz-results').classList.add('hidden');
+            initializeTsunamiQuiz();
+        }
+
+        // Event listeners
+        document.getElementById('quiz-next').onclick = nextQuizQuestion;
+        document.getElementById('quiz-prev').onclick = prevQuizQuestion;
+        document.getElementById('quiz-restart').onclick = restartTsunamiQuiz;
+
+        // Initialize quiz when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTsunamiQuiz();
+        });
+    </script>
 </body>
 </html>
