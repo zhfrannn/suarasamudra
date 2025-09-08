@@ -1,8 +1,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
+        /* Prevent flash of unstyled content */
+        html {
+            visibility: visible;
+            opacity: 1;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f0f9ff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Smooth transitions for all elements */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .ocean-gradient {
@@ -24,6 +38,15 @@
         .story-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Smooth page transitions */
+        .page-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .page-transition.fade-out {
+            opacity: 0;
         }
         
         /* Mapbox custom styles */
