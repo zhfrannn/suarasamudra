@@ -809,3 +809,365 @@
                     <i class="fas fa-trophy text-6xl text-yellow-500 mb-4"></i>
                     <h4 class="text-3xl font-bold text-gray-800 mb-4">Quiz Completed!</h4>
                     <p class="text-xl text-gray-700 mb-4">Your Score: <span class="font-bold text-blue-600">${mainQuizScore}/30 (${percentage}%)</span></p>
+                    <p class="text-lg text-gray-700 mb-4">Your Score: <span id="peace-final-score" class="font-bold text-blue-600"></span></p>
+                    ${percentage >= 70 ? 
+                        '<p class="text-green-600 font-semibold mb-4">🎉 Congratulations! You earned a certificate!</p>' :
+                        '<p class="text-orange-600 mb-4">Keep learning and try again to earn your certificate!</p>'
+                    }
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="startMainQuiz()" class="btn-secondary btn-icon btn-ripple">
+                            <i class="fas fa-redo mr-2"></i>Try Again
+                        </button>
+                        <a href="stories.html" class="btn-primary btn-icon btn-ripple">
+                            <i class="fas fa-book mr-2"></i>Explore Stories
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            const percentage = Math.round((result.total_score / 30) * 100);
+            document.getElementById('peace-final-score').textContent = `${result.total_score}/30 (${percentage}%)`;
+        }
+
+        // Make functions globally available
+        window.startMainQuiz = startMainQuiz;
+    </script>
+
+    <script>
+        // Make functions globally available
+        window.startQuiz = startQuiz;
+        window.trackEvent = trackEvent;
+        window.openVideoModal = openVideoModal;
+        window.closeVideoModal = closeVideoModal;
+        window.openComicModal = openComicModal;
+        window.closeComicModal = closeComicModal;
+        
+        // Video Modal Functions
+        function openVideoModal(type) {
+            const videoData = {
+                tsunami: {
+                    title: "Understanding Tsunamis",
+                    url: "https://www.youtube.com/embed/Wx9vPv-T51I"
+                },
+                recovery: {
+                    title: "Community-Based Recovery",
+                    url: "https://www.youtube.com/embed/kJQP7kiw5Fk"
+                },
+                peace: {
+                    title: "Building Peace Through Community",
+                    url: "https://www.youtube.com/embed/A4VbOHvaPRc"
+                },
+                wisdom: {
+                    title: "Traditional Knowledge Systems",
+                    url: "https://www.youtube.com/embed/yfiMGbKQCGw"
+                },
+                flood: {
+                    title: "Flash Flood Safety",
+                    url: "https://www.youtube.com/embed/BLEPakj1YTY"
+                }
+            };
+            
+            const video = videoData[type];
+            if (video) {
+                document.getElementById('videoModalTitle').textContent = video.title;
+                document.getElementById('videoFrame').src = video.url;
+                document.getElementById('videoModal').classList.remove('hidden');
+            }
+        }
+        
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+            document.getElementById('videoFrame').src = '';
+        }
+        
+        // Comic Modal Functions
+        function openComicModal(type) {
+            const comicData = {
+                tsunami: {
+                    title: "The Day the Sea Came",
+                    panels: [
+                        { bg: "from-yellow-200 to-orange-300", icon: "fas fa-home", color: "text-orange-800", title: "A Peaceful Morning", text: "It was just another Sunday morning..." },
+                        { bg: "from-red-200 to-red-400", icon: "fas fa-exclamation-triangle", color: "text-red-800", title: "The Earth Shakes", text: "The ground trembled beneath our feet..." },
+                        { bg: "from-blue-200 to-blue-400", icon: "fas fa-water", color: "text-blue-800", title: "The Sea Retreats", text: "The ocean pulled back further than ever..." },
+                        { bg: "from-gray-300 to-gray-500", icon: "fas fa-running", color: "text-gray-800", title: "Run to the Hills!", text: "My father shouted the ancient warning..." },
+                        { bg: "from-indigo-300 to-indigo-600", icon: "fas fa-mountain", color: "text-indigo-100", title: "Safety on High Ground", text: "From the hill, we watched our world disappear..." },
+                        { bg: "from-green-200 to-green-400", icon: "fas fa-hands-helping", color: "text-green-800", title: "Community Strength", text: "In our darkest hour, we discovered gotong royong..." }
+                    ]
+                },
+                recovery: {
+                    title: "Spirit of Gotong Royong",
+                    panels: [
+                        { bg: "from-gray-300 to-gray-500", icon: "fas fa-home", color: "text-gray-700", title: "After the Wave", text: "Our village was gone, but our spirit remained..." },
+                        { bg: "from-blue-200 to-blue-400", icon: "fas fa-users", color: "text-blue-800", title: "Coming Together", text: "Every morning at 7 AM, we gathered..." },
+                        { bg: "from-yellow-200 to-orange-300", icon: "fas fa-tools", color: "text-orange-800", title: "Learning New Skills", text: "Fishermen became carpenters..." },
+                        { bg: "from-green-200 to-green-400", icon: "fas fa-school", color: "text-green-800", title: "Building Hope", text: "We decided to build the school first..." },
+                        { bg: "from-purple-200 to-purple-400", icon: "fas fa-child", color: "text-purple-800", title: "Children's Laughter", text: "The day our children returned to school..." },
+                        { bg: "from-indigo-200 to-indigo-400", icon: "fas fa-heart", color: "text-indigo-800", title: "Stronger Together", text: "Our village became stronger than ever..." }
+                    ]
+                },
+                peace: {
+                    title: "Coffee Diplomacy",
+                    panels: [
+                        { bg: "from-red-200 to-red-400", icon: "fas fa-fist-raised", color: "text-red-800", title: "After the Conflict", text: "The peace agreement was signed, but hearts were divided..." },
+                        { bg: "from-yellow-200 to-yellow-600", icon: "fas fa-coffee", color: "text-yellow-900", title: "Opening the Warung", text: "I just wanted to make good coffee..." },
+                        { bg: "from-gray-200 to-gray-400", icon: "fas fa-eye", color: "text-gray-800", title: "Silent Tension", text: "Former enemies sat as far apart as possible..." },
+                        { bg: "from-blue-200 to-blue-400", icon: "fas fa-comments", color: "text-blue-800", title: "Breaking the Ice", text: "This is a coffee shop, not a battlefield..." },
+                        { bg: "from-green-200 to-green-400", icon: "fas fa-handshake", color: "text-green-800", title: "First Steps", text: "A nod here, a 'good morning' there..." },
+                        { bg: "from-purple-200 to-purple-400", icon: "fas fa-heart", color: "text-purple-800", title: "Warung Damai", text: "The Peace Coffee Shop - where former enemies became friends..." }
+                    ]
+                },
+                wisdom: {
+                    title: "Wisdom of Smong",
+                    panels: [
+                        { bg: "from-green-200 to-green-400", icon: "fas fa-tree", color: "text-green-800", title: "Under the Banyan Tree", text: "Grandmother taught us the ancient warnings..." },
+                        { bg: "from-blue-200 to-blue-400", icon: "fas fa-water", color: "text-blue-800", title: "Reading the Sea", text: "The sea is like a person with moods..." },
+                        { bg: "from-red-200 to-red-400", icon: "fas fa-exclamation-triangle", color: "text-red-800", title: "The Warning Signs", text: "When the earth shakes and the sea retreats..." },
+                        { bg: "from-yellow-200 to-orange-300", icon: "fas fa-running", color: "text-orange-800", title: "Run to the Hills!", text: "Don't think, don't pack - just run!" },
+                        { bg: "from-purple-200 to-purple-400", icon: "fas fa-mountain", color: "text-purple-800", title: "Safe on High Ground", text: "Stay until the sea has been calm..." },
+                        { bg: "from-indigo-200 to-indigo-400", icon: "fas fa-child", color: "text-indigo-800", title: "Passing It On", text: "Now I teach the next generation..." }
+                    ]
+                }
+            };
+            
+            const comic = comicData[type];
+            if (comic) {
+                document.getElementById('comicModalTitle').textContent = comic.title;
+                const comicContent = document.getElementById('comicContent');
+                comicContent.innerHTML = '';
+                
+                comic.panels.forEach(panel => {
+                    const panelDiv = document.createElement('div');
+                    panelDiv.className = 'comic-panel bg-white rounded-lg p-4';
+                    panelDiv.innerHTML = `
+                        <div class="h-48 bg-gradient-to-b ${panel.bg} rounded-lg flex items-center justify-center mb-4 relative">
+                            <div class="text-center">
+                                <i class="${panel.icon} text-4xl ${panel.color} mb-2"></i>
+                                <p class="${panel.color} font-bold text-sm">${panel.title}</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-3">
+                            <p class="text-xs font-medium text-gray-800">${panel.text}</p>
+                        </div>
+                    `;
+                    comicContent.appendChild(panelDiv);
+                });
+                
+                document.getElementById('comicModal').classList.remove('hidden');
+            }
+        }
+        
+        function closeComicModal() {
+            document.getElementById('comicModal').classList.add('hidden');
+        }
+        
+        // =================================================================
+        // BAGIAN SIMULASI KUIS (STATIS)
+        // =================================================================
+        
+        // Simulasi data kuis untuk demo
+        const quizData = [
+            {
+                id: 1,
+                question: "What is the traditional warning system for tsunamis in Aceh?",
+                choices: ["Smong", "Siren", "Radio", "Bell"],
+                correct: 0,
+                feedback: "Correct! Smong is the traditional oral warning system passed down through generations in Aceh."
+            },
+            {
+                id: 2,
+                question: "What should you do first when you feel a strong earthquake near the coast?",
+                choices: ["Take photos", "Run to higher ground", "Call emergency services", "Stay inside"],
+                correct: 1,
+                feedback: "Correct! Running to higher ground immediately is the most important action during a coastal earthquake."
+            },
+            {
+                id: 3,
+                question: "What does 'gotong royong' mean in community recovery?",
+                choices: ["Individual effort", "Government help", "Mutual assistance", "Foreign aid"],
+                correct: 2,
+                feedback: "Correct! Gotong royong represents the spirit of mutual assistance and community cooperation."
+            }
+        ];
+        
+        let currentQuizSession = null;
+        let currentQuestion = 0;
+        let score = 0;
+        let quizStarted = false;
+        
+        // Simulasi session management
+        function createQuizSession() {
+            return {
+                id: 'session_' + Date.now(),
+                user_id: 'user_' + Math.random().toString(36).substr(2, 9),
+                start_time: new Date().toISOString(),
+                questions_answered: 0,
+                current_score: 0
+            };
+        }
+        
+        // Simulasi tracking events
+        function trackEvent(eventName, data) {
+            console.log(`Event: ${eventName}`, data);
+            // Dalam implementasi nyata, ini akan mengirim data ke analytics service
+        }
+        
+        // Simulasi API call untuk submit jawaban
+        async function submitAnswer(questionId, selectedAnswer) {
+            // Simulasi delay network
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            const question = quizData.find(q => q.id === questionId);
+            const isCorrect = question.correct === selectedAnswer;
+            const points = isCorrect ? 10 : 0;
+            
+            // Update session
+            if (currentQuizSession) {
+                currentQuizSession.questions_answered++;
+                currentQuizSession.current_score += points;
+            }
+            
+            return {
+                correct: isCorrect,
+                points: points,
+                feedback: question.feedback,
+                total_score: currentQuizSession ? currentQuizSession.current_score : points
+            };
+        }
+        
+        // Fungsi untuk memulai kuis
+        function startQuiz() {
+            currentQuizSession = createQuizSession();
+            currentQuestion = 0;
+            score = 0;
+            quizStarted = true;
+            
+            trackEvent('quiz_started', { 
+                session_id: currentQuizSession.id,
+                user_id: currentQuizSession.user_id 
+            });
+            
+            showQuestion();
+        }
+        
+        // Fungsi untuk menampilkan pertanyaan
+        function showQuestion() {
+            if (currentQuestion >= quizData.length) {
+                showResults();
+                return;
+            }
+            
+            const question = quizData[currentQuestion];
+            
+            // Update UI dengan pertanyaan baru
+            document.getElementById('scenario-text').textContent = question.question;
+            
+            const choicesContainer = document.getElementById('choices-container');
+            choicesContainer.innerHTML = '';
+            
+            question.choices.forEach((choice, index) => {
+                const button = document.createElement('button');
+                button.className = 'choice-btn w-full text-left p-4 rounded-lg bg-white hover:bg-blue-50 transition border-2 border-gray-200 hover:border-blue-300 mb-4';
+                button.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-blue-600 font-bold">${String.fromCharCode(65 + index)}</span>
+                        </div>
+                        <span class="text-gray-800">${choice}</span>
+                    </div>
+                `;
+                button.onclick = () => selectAnswer(question.id, index);
+                choicesContainer.appendChild(button);
+            });
+            
+            // Update progress
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('progress-text').textContent = `${Math.round(progress)}%`;
+        }
+        
+        // Fungsi untuk memilih jawaban
+        async function selectAnswer(questionId, selectedIndex) {
+            // Disable semua tombol
+            const buttons = document.querySelectorAll('.choice-btn');
+            buttons.forEach(button => button.disabled = true);
+            
+            try {
+                const response = await submitAnswer(questionId, selectedIndex);
+                
+                // Tampilkan feedback
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.className = `mt-4 p-4 rounded-lg ${response.correct ? 'bg-green-100 border border-green-200' : 'bg-red-100 border border-red-200'}`;
+                feedbackDiv.innerHTML = `<p class="font-medium ${response.correct ? 'text-green-800' : 'text-red-800'}">${response.feedback}</p>`;
+                document.getElementById('choices-container').appendChild(feedbackDiv);
+                
+                score = response.total_score;
+                
+                trackEvent('question_answered', {
+                    session_id: currentQuizSession.id,
+                    question_id: questionId,
+                    selected_answer: selectedIndex,
+                    correct: response.correct,
+                    points: response.points,
+                    user_id: currentQuizSession.user_id
+                });
+                
+                // Pindah ke pertanyaan berikutnya setelah delay
+                setTimeout(() => {
+                    currentQuestion++;
+                    showQuestion();
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error submitting answer:', error);
+                // Handle error - mungkin tampilkan pesan error ke user
+            }
+        }
+        
+        // Fungsi untuk menampilkan hasil
+        function showResults() {
+            const finalScore = Math.round((score / (quizData.length * 10)) * 100);
+            
+            // Simulasi pengecekan kelayakan sertifikat
+            const certificateEligible = finalScore >= 70;
+            
+            document.getElementById('choices-container').innerHTML = `
+                <div class="text-center py-12">
+                    <i class="fas fa-trophy text-6xl text-yellow-500 mb-4"></i>
+                    <h4 class="text-3xl font-bold text-gray-800 mb-4">Quiz Completed!</h4>
+                    <p class="text-xl text-gray-700 mb-4">Your Score: <span class="font-bold text-blue-600">${score}/${quizData.length * 10} (${finalScore}%)</span></p>
+                    ${certificateEligible ? 
+                        '<p class="text-green-600 font-semibold mb-4">🎉 Congratulations! You earned a certificate!</p>' :
+                        '<p class="text-orange-600 mb-4">Keep learning and try again to earn your certificate!</p>'
+                    }
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="startQuiz()" class="btn-secondary btn-icon btn-ripple">
+                            <i class="fas fa-redo mr-2"></i>Try Again
+                        </button>
+                        <a href="interactive.html" class="text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+            
+            // Simulasi update final score
+            if (currentQuizSession) {
+                const newScore = score;
+                const percentage = Math.round((newScore / (quizData.length * 10)) * 100);
+                response.quiz_completed = true;
+                response.final_score_percentage = percentage;
+                response.certificate_eligible = percentage >= 70;
+                
+                trackEvent('quiz_completed', { 
+                    session_id: currentQuizSession,
+                    final_score: newScore,
+                    percentage: percentage,
+                    user_id: session.user_id
+                });
+            } else {
+                console.error('No active quiz session found');
+            }
+        }
+    </script>
+</body>
+</html>
