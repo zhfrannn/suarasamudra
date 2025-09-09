@@ -42,131 +42,552 @@
         </div>
     </header>
 
-    <section class="py-16 bg-gray-50">
+    <!-- Hero Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-50 to-cyan-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Interactive Learning</h2>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Interactive Learning Hub</h2>
                 <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Test your disaster preparedness knowledge through interactive scenarios</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore Aceh's stories through gamified quizzes, educational videos, and interactive comics</p>
             </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-2xl font-bold text-gray-800" id="scenario-title">Loading Quiz...</h3>
-                        <div class="flex items-center space-x-4">
-                            <div class="text-sm text-gray-600">
-                                Progress: <span id="progress-text">0%</span>
-                            </div>
-                            <div class="w-32 h-2 bg-gray-200 rounded-full simulation-progress">
-                                <div class="simulation-progress-bar rounded-full" id="progress-bar" style="width: 0%"></div>
+        </div>
+    </section>
+
+    <!-- Main Quiz and Leaderboard Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Quiz Section -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-3xl font-bold text-gray-800">
+                                <i class="fas fa-gamepad text-blue-600 mr-3"></i>Disaster Preparedness Quiz
+                            </h3>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-sm text-gray-600">
+                                    Progress: <span id="progress-text">0%</span>
+                                </div>
+                                <div class="w-32 h-2 bg-gray-200 rounded-full simulation-progress">
+                                    <div class="simulation-progress-bar rounded-full" id="progress-bar" style="width: 0%"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <p class="text-gray-700 text-lg leading-relaxed" id="scenario-text">
-                            Initializing interactive quiz system...
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-4 mb-8" id="choices-container">
-                        <div class="animate-pulse">
-                            <div class="h-16 bg-gray-200 rounded-lg mb-4"></div>
-                            <div class="h-16 bg-gray-200 rounded-lg mb-4"></div>
-                            <div class="h-16 bg-gray-200 rounded-lg"></div>
+                        
+                        <div class="mb-8">
+                            <p class="text-gray-700 text-lg leading-relaxed" id="scenario-text">
+                                Welcome to the Interactive Disaster Preparedness Quiz! Test your knowledge about tsunami warnings, community response, and traditional wisdom like Smong. Click "Start Quiz" to begin your learning journey.
+                            </p>
                         </div>
-                    </div>
-                    
-                    <div class="flex justify-between items-center">
-                        <button id="restart-btn" class="btn-secondary btn-icon btn-ripple hidden" onclick="startQuiz()">
-                            <i class="fas fa-redo mr-2"></i> Restart Quiz
-                        </button>
-                        <button id="next-btn" class="btn-primary btn-icon btn-ripple hidden">
-                            <i class="fas fa-arrow-right mr-2"></i> Next Question
-                        </button>
+                        
+                        <div class="space-y-4 mb-8" id="choices-container">
+                            <div class="text-center py-12">
+                                <i class="fas fa-play-circle text-6xl text-blue-600 mb-4"></i>
+                                <h4 class="text-2xl font-bold text-gray-800 mb-4">Ready to Test Your Knowledge?</h4>
+                                <p class="text-gray-600 mb-6">Learn about disaster preparedness through interactive scenarios based on real stories from Aceh.</p>
+                                <button onclick="startMainQuiz()" class="btn-primary btn-icon btn-ripple text-lg px-8 py-4">
+                                    <i class="fas fa-play mr-3"></i>Start Quiz
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <button id="restart-btn" class="btn-secondary btn-icon btn-ripple hidden" onclick="startMainQuiz()">
+                                <i class="fas fa-redo mr-2"></i> Restart Quiz
+                            </button>
+                            <button id="next-btn" class="btn-primary btn-icon btn-ripple hidden">
+                                <i class="fas fa-arrow-right mr-2"></i> Next Question
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">
-                            <i class="fas fa-trophy text-yellow-500 mr-2"></i> Leaderboard
+                <!-- Leaderboard Section -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-lg p-6 sticky top-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-6">
+                            <i class="fas fa-trophy text-yellow-500 mr-3"></i>Leaderboard
                         </h4>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
+                        <div class="space-y-4 mb-6">
+                            <div class="flex justify-between items-center p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border-l-4 border-yellow-500">
                                 <div class="flex items-center">
-                                    <span class="w-6 h-6 bg-yellow-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
-                                    <span class="font-medium">Anonymous User</span>
+                                    <div class="w-10 h-10 bg-yellow-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold text-gray-800">Tsunami Expert</span>
+                                        <p class="text-xs text-gray-600">Perfect Score Achiever</p>
+                                    </div>
                                 </div>
-                                <span class="text-yellow-600 font-bold">30/30</span>
+                                <span class="text-yellow-600 font-bold text-lg">30/30</span>
                             </div>
                             <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                                 <div class="flex items-center">
-                                    <span class="w-6 h-6 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
-                                    <span class="font-medium">Student A</span>
+                                    <span class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
+                                    <span class="font-medium text-gray-800">Disaster Prepared</span>
                                 </div>
                                 <span class="text-gray-600 font-bold">28/30</span>
                             </div>
                             <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                                 <div class="flex items-center">
-                                    <span class="w-6 h-6 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
-                                    <span class="font-medium">Student B</span>
+                                    <span class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
+                                    <span class="font-medium text-gray-800">Community Helper</span>
                                 </div>
                                 <span class="text-gray-600 font-bold">25/30</span>
                             </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <span class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">4</span>
+                                    <span class="font-medium text-gray-800">Peace Builder</span>
+                                </div>
+                                <span class="text-gray-600 font-bold">23/30</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                                <div class="flex items-center">
+                                    <span class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">5</span>
+                                    <span class="font-medium text-gray-800">Wisdom Keeper</span>
+                                </div>
+                                <span class="text-gray-600 font-bold">20/30</span>
+                            </div>
                         </div>
-                        <button class="btn-secondary btn-ripple w-full mt-4">
+                        <button class="btn-secondary btn-ripple w-full">
                             <i class="fas fa-list mr-2"></i> View Full Leaderboard
                         </button>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow-sm p-6">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">
-                            <i class="fas fa-lightbulb text-blue-500 mr-2"></i> Learning Resources
-                        </h4>
-                        <div class="space-y-4">
-                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition group">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-blue-200 transition">
-                                        <i class="fas fa-book text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-gray-800 group-hover:text-blue-800">Disaster Preparedness Guide</h5>
-                                        <p class="text-sm text-gray-600">Complete guide for emergency situations</p>
-                                    </div>
+                        
+                        <!-- Achievement Badges -->
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <h5 class="font-bold text-gray-800 mb-4">
+                                <i class="fas fa-medal text-purple-600 mr-2"></i>Achievement Badges
+                            </h5>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="text-center p-2 bg-blue-50 rounded-lg">
+                                    <i class="fas fa-water text-2xl text-blue-600 mb-1"></i>
+                                    <p class="text-xs font-medium text-blue-800">Tsunami Expert</p>
                                 </div>
-                            </a>
-                            
-                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:bg-green-50 transition group">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-green-200 transition">
-                                        <i class="fas fa-video text-green-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-gray-800 group-hover:text-green-800">Smong Traditional Wisdom</h5>
-                                        <p class="text-sm text-gray-600">Learn about Aceh's tsunami warning system</p>
-                                    </div>
+                                <div class="text-center p-2 bg-green-50 rounded-lg">
+                                    <i class="fas fa-hands-helping text-2xl text-green-600 mb-1"></i>
+                                    <p class="text-xs font-medium text-green-800">Community Builder</p>
                                 </div>
-                            </a>
-                            
-                            <a href="#" class="block p-4 border border-gray-200 rounded-lg hover:border-purple-300 hover:bg-purple-50 transition group">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-200 transition">
-                                        <i class="fas fa-gamepad text-purple-600"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-semibold text-gray-800 group-hover:text-purple-800">Evacuation Simulation</h5>
-                                        <p class="text-sm text-gray-600">Practice evacuation routes and procedures</p>
-                                    </div>
+                                <div class="text-center p-2 bg-yellow-50 rounded-lg">
+                                    <i class="fas fa-scroll text-2xl text-yellow-600 mb-1"></i>
+                                    <p class="text-xs font-medium text-yellow-800">Wisdom Keeper</p>
                                 </div>
-                            </a>
+                                <div class="text-center p-2 bg-purple-50 rounded-lg">
+                                    <i class="fas fa-dove text-2xl text-purple-600 mb-1"></i>
+                                    <p class="text-xs font-medium text-purple-800">Peace Maker</p>
+                                </div>
+                                <div class="text-center p-2 bg-red-50 rounded-lg">
+                                    <i class="fas fa-shield-alt text-2xl text-red-600 mb-1"></i>
+                                    <p class="text-xs font-medium text-red-800">Emergency Ready</p>
+                                </div>
+                                <div class="text-center p-2 bg-indigo-50 rounded-lg">
+                                    <i class="fas fa-graduation-cap text-2xl text-indigo-600 mb-1"></i>
+                                    <p class="text-xs font-medium text-indigo-800">Educator</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Educational Videos Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-play-circle text-red-600 mr-3"></i>Educational Videos
+                </h3>
+                <p class="text-gray-600 max-w-3xl mx-auto">Watch educational videos from our story collection to deepen your understanding</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tsunami Education Video -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-play-circle text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Tsunami</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Understanding Tsunamis</h4>
+                        <p class="text-gray-600 mb-4">Learn about tsunami formation, warning signs, and evacuation procedures</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i> 8 min
+                                <i class="fas fa-eye ml-3 mr-1"></i> 1,234
+                            </div>
+                            <button onclick="openVideoModal('tsunami')" class="btn-primary btn-ripple text-sm">
+                                <i class="fas fa-play mr-2"></i>Watch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Recovery Video -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                            <i class="fas fa-play-circle text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Recovery</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Community-Based Recovery</h4>
+                        <p class="text-gray-600 mb-4">Discover how communities rebuild stronger after disasters</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i> 12 min
+                                <i class="fas fa-eye ml-3 mr-1"></i> 987
+                            </div>
+                            <button onclick="openVideoModal('recovery')" class="btn-primary btn-ripple text-sm">
+                                <i class="fas fa-play mr-2"></i>Watch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peacebuilding Video -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-play-circle text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Peace</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Building Peace Through Community</h4>
+                        <p class="text-gray-600 mb-4">Learn about conflict resolution and community peacebuilding</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i> 10 min
+                                <i class="fas fa-eye ml-3 mr-1"></i> 756
+                            </div>
+                            <button onclick="openVideoModal('peace')" class="btn-primary btn-ripple text-sm">
+                                <i class="fas fa-play mr-2"></i>Watch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traditional Knowledge Video -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                            <i class="fas fa-play-circle text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Wisdom</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Traditional Knowledge Systems</h4>
+                        <p class="text-gray-600 mb-4">Explore how indigenous knowledge complements modern science</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i> 15 min
+                                <i class="fas fa-eye ml-3 mr-1"></i> 1,456
+                            </div>
+                            <button onclick="openVideoModal('wisdom')" class="btn-primary btn-ripple text-sm">
+                                <i class="fas fa-play mr-2"></i>Watch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flash Flood Safety Video -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="relative">
+                        <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
+                            <i class="fas fa-play-circle text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-xs rounded-full">Emergency</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Flash Flood Safety</h4>
+                        <p class="text-gray-600 mb-4">Learn about flash flood risks and emergency response</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i> 6 min
+                                <i class="fas fa-eye ml-3 mr-1"></i> 892
+                            </div>
+                            <button onclick="openVideoModal('flood')" class="btn-primary btn-ripple text-sm">
+                                <i class="fas fa-play mr-2"></i>Watch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View All Videos -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card border-2 border-dashed border-gray-300 hover:border-blue-400 transition">
+                    <div class="h-48 bg-gray-50 flex items-center justify-center">
+                        <i class="fas fa-plus text-6xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">View All Videos</h4>
+                        <p class="text-gray-600 mb-4">Explore our complete collection of educational content</p>
+                        <button onclick="window.location.href='stories.html'" class="btn-secondary btn-icon btn-ripple">
+                            <i class="fas fa-video mr-2"></i> Browse All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Comics Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-images text-purple-600 mr-3"></i>Interactive Digital Comics
+                </h3>
+                <p class="text-gray-600 max-w-3xl mx-auto">Experience stories through visual storytelling and interactive comics</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tsunami Comic -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="comic-panel h-48 bg-gradient-to-b from-blue-200 to-blue-400 flex items-center justify-center relative">
+                        <div class="text-center">
+                            <i class="fas fa-water text-6xl text-blue-800 mb-2"></i>
+                            <p class="text-blue-900 font-bold">The Day the Sea Came</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 mb-2">Tsunami Survivor Story</h4>
+                        <p class="text-gray-600 text-sm mb-3">6 panels • Interactive</p>
+                        <button onclick="openComicModal('tsunami')" class="btn-primary btn-ripple w-full text-sm">
+                            <i class="fas fa-book-open mr-2"></i>Read Comic
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recovery Comic -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="comic-panel h-48 bg-gradient-to-b from-green-200 to-green-400 flex items-center justify-center relative">
+                        <div class="text-center">
+                            <i class="fas fa-hands-helping text-6xl text-green-800 mb-2"></i>
+                            <p class="text-green-900 font-bold">Spirit of Gotong Royong</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 mb-2">Village Rebuilding</h4>
+                        <p class="text-gray-600 text-sm mb-3">6 panels • Interactive</p>
+                        <button onclick="openComicModal('recovery')" class="btn-primary btn-ripple w-full text-sm">
+                            <i class="fas fa-book-open mr-2"></i>Read Comic
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Peace Comic -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="comic-panel h-48 bg-gradient-to-b from-purple-200 to-purple-400 flex items-center justify-center relative">
+                        <div class="text-center">
+                            <i class="fas fa-coffee text-6xl text-purple-800 mb-2"></i>
+                            <p class="text-purple-900 font-bold">Coffee Diplomacy</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 mb-2">From Conflict to Peace</h4>
+                        <p class="text-gray-600 text-sm mb-3">6 panels • Interactive</p>
+                        <button onclick="openComicModal('peace')" class="btn-primary btn-ripple w-full text-sm">
+                            <i class="fas fa-book-open mr-2"></i>Read Comic
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Wisdom Comic -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden story-card">
+                    <div class="comic-panel h-48 bg-gradient-to-b from-yellow-200 to-orange-300 flex items-center justify-center relative">
+                        <div class="text-center">
+                            <i class="fas fa-scroll text-6xl text-orange-800 mb-2"></i>
+                            <p class="text-orange-900 font-bold">Wisdom of Smong</p>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-800 mb-2">Traditional Knowledge</h4>
+                        <p class="text-gray-600 text-sm mb-3">6 panels • Interactive</p>
+                        <button onclick="openComicModal('wisdom')" class="btn-primary btn-ripple w-full text-sm">
+                            <i class="fas fa-book-open mr-2"></i>Read Comic
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Links Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-link text-indigo-600 mr-3"></i>Quick Access to Stories
+                </h3>
+                <p class="text-gray-600 max-w-3xl mx-auto">Jump directly to full story experiences with all educational content</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="stories/tsunami-survivor/index.html" class="bg-white rounded-xl shadow-lg p-6 story-card hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-water text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">The Wave That Changed Everything</h4>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Tsunami</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Complete story with video, comic, and interactive quiz</p>
+                    <div class="flex items-center text-blue-600">
+                        <span class="text-sm font-medium">View Full Story</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <a href="stories/rebuilding-village/index.html" class="bg-white rounded-xl shadow-lg p-6 story-card hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-hands-helping text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Rebuilding Our Village Together</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Recovery</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Complete story with video, comic, and interactive quiz</p>
+                    <div class="flex items-center text-green-600">
+                        <span class="text-sm font-medium">View Full Story</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <a href="stories/coffee-shop/index.html" class="bg-white rounded-xl shadow-lg p-6 story-card hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-dove text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">From Conflict to Coffee Shop</h4>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Peace</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Complete story with video, comic, and interactive quiz</p>
+                    <div class="flex items-center text-purple-600">
+                        <span class="text-sm font-medium">View Full Story</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <a href="stories/smong-whispering-sea/index.html" class="bg-white rounded-xl shadow-lg p-6 story-card hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-scroll text-yellow-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Smong, The Whispering Sea</h4>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Wisdom</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Complete story with video, comic, and interactive quiz</p>
+                    <div class="flex items-center text-yellow-600">
+                        <span class="text-sm font-medium">View Full Story</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <a href="stories/flash-flood-midnight/index.html" class="bg-white rounded-xl shadow-lg p-6 story-card hover:shadow-xl transition-all">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Flash Flood at Midnight</h4>
+                            <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Emergency</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Complete story with video, comic, and interactive quiz</p>
+                    <div class="flex items-center text-red-600">
+                        <span class="text-sm font-medium">View Full Story</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <a href="stories.html" class="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl shadow-lg p-6 story-card hover:shadow-xl transition-all border-2 border-dashed border-blue-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-plus text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Explore All Stories</h4>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">Browse</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">Discover more stories from Aceh's journey of resilience</p>
+                    <div class="flex items-center text-blue-600">
+                        <span class="text-sm font-medium">View All Stories</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900" id="videoModalTitle">Educational Video</h3>
+                        <button onclick="closeVideoModal()" class="text-gray-400 hover:text-gray-500">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="relative" style="padding-bottom: 56.25%; height: 0;">
+                        <iframe id="videoFrame" class="absolute top-0 left-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comic Modal -->
+    <div id="comicModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-6xl sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900" id="comicModalTitle">Digital Comic</h3>
+                        <button onclick="closeComicModal()" class="text-gray-400 hover:text-gray-500">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div id="comicContent" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Comic panels will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="bg-gray-800 text-white pt-12 pb-6">
         <div class="container mx-auto px-4">
@@ -178,10 +599,10 @@
                 <div>
                     <h4 class="font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Project</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Explore Stories</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Interactive Tools</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contribute</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Project</a></li>
+                        <li><a href="stories.html" class="text-gray-400 hover:text-white transition">Explore Stories</a></li>
+                        <li><a href="interactive.html" class="text-gray-400 hover:text-white transition">Interactive Tools</a></li>
+                        <li><a href="contribute.html" class="text-gray-400 hover:text-white transition">Contribute</a></li>
                     </ul>
                 </div>
                 <div>
@@ -221,5 +642,170 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
-</body>
-</html>
+    <script>
+        // Enhanced Interactive Page JavaScript
+        
+        // Quiz Data from main.js
+        const mainQuizData = [
+            {
+                id: 'scenario-1',
+                title: "Scenario 1: Flash Flood at Midnight",
+                question: "Based on true events from Calang, 2004. It's 2 AM and heavy rain has been falling for hours. You hear shouting outside and the sound of rushing water. What do you do first?",
+                choices: [
+                    { 
+                        id: 'a', 
+                        text: "Wake up family members and tell them to go to the evacuation point.", 
+                        correct: true, 
+                        feedback: "✅**Feedback AI:** Jawaban tepat! Tindakan paling krusial adalah evakuasi segera ke tempat aman. Selamatkan diri, bukan harta. 👍",
+                        points: 10
+                    },
+                    { 
+                        id: 'b', 
+                        text: "Check social media to see what others are saying about the situation.", 
+                        correct: false, 
+                        feedback: "🚨**Feedback AI:** Pilihan ini berbahaya! Menunda evakuasi untuk mengecek media sosial bisa berakibat fatal. Ikuti naluri dan dengarkan peringatan di luar. ⚠️",
+                        points: 0
+                    },
+                    { 
+                        id: 'c', 
+                        text: "Go back to sleep, assuming the water won't reach your house.", 
+                        correct: false, 
+                        feedback: "🚨**Feedback AI:** Sangat berbahaya! Jangan pernah meremehkan peringatan bencana. Setiap detik berharga. ⚠️",
+                        points: 0
+                    }
+                ]
+            },
+            {
+                id: 'scenario-2',
+                title: "Scenario 2: Post-Disaster Hoax",
+                question: "Satu hari setelah gempa, sebuah pesan berantai tersebar di WhatsApp yang mengklaim akan ada gempa susulan tsunami yang lebih besar. Warga panik. Apa yang harus kamu lakukan?",
+                choices: [
+                    { 
+                        id: 'a', 
+                        text: "Langsung menyebarkan pesan itu ke grup lain untuk memperingati semua orang.", 
+                        correct: false, 
+                        feedback: "🚨**Feedback AI:** Hati-hati! Menyebarkan informasi yang belum diverifikasi bisa menimbulkan kepanikan massal. ⚠️",
+                        points: 0
+                    },
+                    { 
+                        id: 'b', 
+                        text: "Tenang, dan verifikasi informasi tersebut dari sumber resmi seperti BMKG atau BPBD sebelum bertindak.", 
+                        correct: true, 
+                        feedback: "✅**Feedback AI:** Jawaban tepat! Verifikasi informasi dari sumber kredibel adalah kunci untuk melawan misinformasi. Kamu adalah agen komunikasi yang tangguh. 👍",
+                        points: 10
+                    },
+                    { 
+                        id: 'c', 
+                        text: "Mengabaikan pesan itu sepenuhnya, karena kamu tidak percaya isinya.", 
+                        correct: false, 
+                        feedback: "🚨**Feedback AI:** Mengabaikan pesan bisa jadi berbahaya jika ternyata benar. Verifikasi adalah langkah yang paling bijak. ⚠️",
+                        points: 0
+                    }
+                ]
+            },
+            {
+                id: 'scenario-3',
+                title: "Scenario 3: Community Recovery",
+                question: "Setelah bencana, komunitasmu memulai fase pemulihan. Banyak warga merasa trauma dan putus asa. Sebagai pemuda, bagaimana kamu bisa berkontribusi?",
+                choices: [
+                    { 
+                        id: 'a', 
+                        text: "Menunggu bantuan datang dan tidak melakukan apa-apa.", 
+                        correct: false, 
+                        feedback: "🚨**Feedback AI:** Pemulihan membutuhkan partisipasi aktif. Setiap orang punya peran penting, sekecil apa pun. ⚠️",
+                        points: 0
+                    },
+                    { 
+                        id: 'b', 
+                        text: "Mengajak teman-temanmu untuk mengadakan kegiatan gotong royong dan mendengarkan cerita para penyintas untuk saling menguatkan.", 
+                        correct: true, 
+                        feedback: "✅**Feedback AI:** Jawaban tepat! Gotong royong dan dukungan psikososial adalah fondasi kuat untuk membangun kembali komunitas. Kamu telah menunjukkan empati dan inisiatif. 👍",
+                        points: 10
+                    },
+                    { 
+                        id: 'c', 
+                        text: "Mencari keuntungan pribadi dari situasi yang ada.", 
+                        correct: false, 
+                        feedback: "🚨**Feedback AI:** Sikap ini sangat tidak etis dan bisa merusak kepercayaan di komunitas. Pemulihan adalah tentang kolaborasi, bukan persaingan. ⚠️",
+                        points: 0
+                    }
+                ]
+            }
+        ];
+
+        let currentMainQuestion = 0;
+        let mainQuizScore = 0;
+        let mainQuizStarted = false;
+
+        function startMainQuiz() {
+            currentMainQuestion = 0;
+            mainQuizScore = 0;
+            mainQuizStarted = true;
+            showMainQuestion();
+        }
+
+        function showMainQuestion() {
+            const question = mainQuizData[currentMainQuestion];
+            
+            document.getElementById('scenario-text').textContent = question.question;
+            
+            const choicesContainer = document.getElementById('choices-container');
+            choicesContainer.innerHTML = '';
+            
+            question.choices.forEach((choice, index) => {
+                const button = document.createElement('button');
+                button.className = 'choice-btn w-full text-left p-4 rounded-lg bg-white hover:bg-blue-50 transition border-2 border-gray-200 hover:border-blue-300 mb-4';
+                button.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full border-2 border-blue-600 flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-blue-600 font-bold">${String.fromCharCode(65 + index)}</span>
+                        </div>
+                        <span class="text-gray-800">${choice.text}</span>
+                    </div>
+                `;
+                button.onclick = () => selectMainAnswer(choice);
+                choicesContainer.appendChild(button);
+            });
+
+            // Update progress
+            const progress = ((currentMainQuestion + 1) / mainQuizData.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('progress-text').textContent = `${Math.round(progress)}%`;
+
+            document.getElementById('restart-btn').classList.remove('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectMainAnswer(selectedChoice) {
+            if (selectedChoice.correct) {
+                mainQuizScore += selectedChoice.points;
+            }
+            
+            // Show feedback
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = `mt-4 p-4 rounded-lg ${selectedChoice.correct ? 'bg-green-100 border border-green-200' : 'bg-red-100 border border-red-200'}`;
+            feedbackDiv.innerHTML = `<p class="font-medium ${selectedChoice.correct ? 'text-green-800' : 'text-red-800'}">${selectedChoice.feedback}</p>`;
+            document.getElementById('choices-container').appendChild(feedbackDiv);
+            
+            // Disable all buttons
+            const buttons = document.querySelectorAll('.choice-btn');
+            buttons.forEach(button => button.disabled = true);
+            
+            if (currentMainQuestion < mainQuizData.length - 1) {
+                setTimeout(() => {
+                    currentMainQuestion++;
+                    showMainQuestion();
+                }, 3000);
+            } else {
+                setTimeout(showMainQuizResults, 3000);
+            }
+        }
+
+        function showMainQuizResults() {
+            const percentage = Math.round((mainQuizScore / 30) * 100);
+            
+            document.getElementById('choices-container').innerHTML = `
+                <div class="text-center py-12">
+                    <i class="fas fa-trophy text-6xl text-yellow-500 mb-4"></i>
+                    <h4 class="text-3xl font-bold text-gray-800 mb-4">Quiz Completed!</h4>
+                    <p class="text-xl text-gray-700 mb-4">Your Score: <span class="font-bold text-blue-600">${mainQuizScore}/30 (${percentage}%)</span></p>
