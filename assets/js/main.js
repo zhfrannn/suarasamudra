@@ -4,6 +4,21 @@ window.addEventListener('load', () => {
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Wait for i18n to be ready before initializing other components
+    if (window.i18n) {
+        initializeComponents();
+    } else {
+        // Wait for i18n to load
+        const checkI18n = setInterval(() => {
+            if (window.i18n) {
+                clearInterval(checkI18n);
+                initializeComponents();
+            }
+        }, 100);
+    }
+});
+
+function initializeComponents() {
     // =================================================================
     // BACKEND INTEGRATION
     // =================================================================
@@ -501,4 +516,4 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     document.body.appendChild(floatingBtn);
-});
+}
